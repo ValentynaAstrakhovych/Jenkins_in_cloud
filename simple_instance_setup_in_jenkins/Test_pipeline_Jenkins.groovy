@@ -12,13 +12,13 @@ pipeline {
     stages {
         stage('Clone Git repo') {
             steps {
-                git(branch: 'astrvalo', url: 'git@github.com:LocalCoding/DevOps_May_24.git', credentialsId: 'git_access_jul25')
+                git(branch: 'main', url: 'git@github.com:ValentynaAstrakhovych/Jenkins_in_cloud.git', credentialsId: 'git_new_access_jenkins_cloud_setup')
             }
         }
         stage('Plan') {
             steps {
                 sh '''
-                cd ./Lesson_15_simple_instance_setup/terraform/
+                cd ./simple_instance_setup_in_jenkins/terraform/
                 terraform init
                 terraform plan -out=terraform.tfplan
                 '''
@@ -32,7 +32,7 @@ pipeline {
         stage('Apply') {
             steps {
                 sh '''
-                cd ./Lesson_15_simple_instance_setup/terraform/
+                cd ./simple_instance_setup_in_jenkins/terraform/
                 terraform apply terraform.tfplan
                 '''
             }
@@ -45,7 +45,7 @@ pipeline {
         stage('Destroy') {
             steps {
                 sh '''
-                cd ./Lesson_15_simple_instance_setup/terraform/
+                cd ./simple_instance_setup_in_jenkins/terraform/
                 terraform plan -destroy -out=terraform-destroy.tfplan
                 terraform apply terraform-destroy.tfplan
                 '''
