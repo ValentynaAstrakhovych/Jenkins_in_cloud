@@ -12,8 +12,7 @@ pipeline {
     stages {
         stage('Clone Git repo') {
             steps {
-                git(branch: 'main', url: 'git@github.com:ValentynaAstrakhovych/Jenkins_in_cloud.git', credentialsId: 'git_new_access_jenkins_cloud_setup')
-            }
+                git(branch: 'main', url: 'git@github.com:ValentynaAstrakhovych/Jenkins_in_cloud.git', credentialsId: 'git_new_access_jenkins_cloud_setup')            }
         }
         stage('Plan') {
             steps {
