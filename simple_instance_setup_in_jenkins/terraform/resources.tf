@@ -4,7 +4,7 @@ resource "aws_instance" "test_t2_micro" {
   ami                  = "ami-0c7217cdde317cfec" # Ubuntu amd64 (x86_64)
   instance_type          = "t2.micro" # free tier
   vpc_security_group_ids = [aws_security_group.web-sg.id]
-  subnet_id = "subnet-057c6611767b84171"
+  subnet_id = "subnet-017fb9efec371dcec"
   user_data              = <<-EOF
     #!/bin/bash
     sudo apt-get update
